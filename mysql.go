@@ -8,7 +8,7 @@ type MysqlConfig struct {
 	User     string `json:"user"`
 	Pwd      string `json:"pwd"`
 	Database string `json:"database"`
-	Port     string `json:"port"`
+	Port     int64  `json:"port"`
 }
 
 func GetMysqlFromConsul(config config.Config, path ...string) (*MysqlConfig, error) {
