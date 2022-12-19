@@ -17,9 +17,9 @@ func NewTracer(serviceName, addr string) (opentracing.Tracer, io.Closer, error) 
 		Reporter: &jaegercfg.ReporterConfig{
 			LogSpans:            true,
 			BufferFlushInterval: 1 * time.Second,
-			LocalAgentHostPort:  "192.168.31.202:6831",
+			LocalAgentHostPort:  addr,
 		},
-		ServiceName: "test",
+		ServiceName: serviceName,
 	}
 
 	return cfg.NewTracer(jaegercfg.Logger(jaeger.StdLogger))
