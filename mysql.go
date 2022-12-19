@@ -11,8 +11,8 @@ type MysqlConfig struct {
 	Port     int64  `json:"port"`
 }
 
-// GetMysqlFromConsul 获取mysql配置
-func GetMysqlFromConsul(config config.Config, path ...string) (*MysqlConfig, error) {
+// GetMysqlConfigFromConsul 获取mysql配置
+func GetMysqlConfigFromConsul(config config.Config, path ...string) (*MysqlConfig, error) {
 	mysqlConfig := &MysqlConfig{}
 	if err := config.Get(path...).Scan(mysqlConfig); err != nil {
 		return nil, err
